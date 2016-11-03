@@ -1,10 +1,10 @@
 Module.register('MMM-National-Rail', {
 
     defaults: {
-            app_id:     '',
-            api_key:    '',
-            show_all:   true,
-            interval:   60000 // Every 1 min
+            token_value:	'6a35568a-8156-4119-95f1-1fc871eb4c55',
+            crs:			'PMR', // The CRS code for the station departure board that is required
+            num_rows:		10 // default value of 10
+            interval:   	60000 // Every 1 min
         },
 
 
@@ -17,9 +17,21 @@ Module.register('MMM-National-Rail', {
 
         // Set up the local values, here we construct the request url to use
         this.loaded = false;
-        this.url = 'https://api.tfl.gov.uk/StopPoint/490013900N/arrivals';
-        this.location = '490013900N';
-        this.result = null;
+        this.envelope =
+        '<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+    		<Header>
+    	    	<AccessToken xmlns="http://thalesgroup.com/RTTI/2013-11-28/Token/types">
+            		<TokenValue>6a35568a-8156-4119-95f1-1fc871eb4c55</TokenValue>
+        		</AccessToken>
+    		</Header>
+    		<Body>
+        		<GetArrBoardWithDetailsRequest xmlns="http://thalesgroup.com/RTTI/2016-02-16/ldb/">
+            		<numRows>10</numRows>
+            		<crs>PMR</crs>
+        		</GetArrBoardWithDetailsRequest>
+    		</Body>
+		</Envelope>';
+		this.result = null;
 
         // Trigger the first request
         this.getNationalRailData(this);
