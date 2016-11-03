@@ -1,0 +1,29 @@
+{
+    "name":         "MMM-National-Rail",
+    "version":      "0.0.1",
+    "description":  "MagicMirror 2 module to get National Rail data in the UK.",
+    "repository":   {
+                    "type": "git",
+                    "url":  "git+https://github.com/lee-fedden/MMM-National-Rail"
+                    },
+    "keywords":     [
+                    "magic mirror",
+                    "smart mirror",
+                    "national rail",
+                    "transport",
+                    "british",
+                    "rail",
+                    "train",
+                    "module"
+                    ],
+    "author":       "Lee Fedden",
+    "contributors": "https://github.com/lee-fedden/MMM-National-Rail/graphs/contributors",
+    "license":      "MIT",
+    "bugs":         {
+                    "url": "https://github.com/lee-fedden/MMM-National-Rail/issues"
+                    },
+    "homepage":     "https://github.com/lee-fedden/MMM-National-Raill#readme",
+    "dependencies": {
+                    "request":  "latest"
+                    }
+}
